@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: floor_grass 1
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: b88856f3154b6274188caca767f50a64, type: 3}
+  - {fileID: 21300000, guid: b0d1f050ad9cdd946bdeed345b9888e2, type: 3}
+  - {fileID: 21300000, guid: a961c370ad5075b4793168d688240d97, type: 3}
+  - {fileID: 21300000, guid: 3f4c2864cb3023a4c876e2ab28006966, type: 3}
+  - {fileID: 21300000, guid: 14af757045640e448a934baf0383d72b, type: 3}
+  - {fileID: 21300000, guid: 8d85ee196298eb54385fe499a2634b6f, type: 3}
+  - {fileID: 21300000, guid: e2b110d19aabdff4f8dc42a8451aae75, type: 3}
+  - {fileID: 21300000, guid: b88856f3154b6274188caca767f50a64, type: 3}
+  - {fileID: 21300000, guid: b88856f3154b6274188caca767f50a64, type: 3}
+  - {fileID: 21300000, guid: b88856f3154b6274188caca767f50a64, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 9.42
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
