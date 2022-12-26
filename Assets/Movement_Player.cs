@@ -8,28 +8,61 @@ public class Movement_Player : MonoBehaviour
     [Range(0.01f, 0.5f)]
     public float speed;
 
-    
-    // Start is called before the first frame update
-    void Start()
+    private SceneManagerSingleton SM;
+    private DoorController sceneDoor;
+
+    public void Start()
     {
-        
+        DontDestroyOnLoad(this);
+
+        GameObject sceneGO = GameObject.FindGameObjectWithTag("SceneManagerSingleton");
+        SM = sceneGO.GetComponent<SceneManagerSingleton>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(sceneDoor != null)
+            {
+               SM.changeScene(sceneDoor.targetSceneName, sceneDoor.targetPosition, gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("door"))
+        {
+            DoorController door = collision.gameObject.GetComponent<DoorController>();
+            if (door.changesScene && door.isOpen)
+            {
+                sceneDoor = door;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("door"))
+        {
+            if (collision.gameObject.GetComponent<DoorController>().changesScene)
+            {
+                sceneDoor = null;
+            }
+        }
     }
 
     void FixedUpdate()
     {
         Vector3 direction = Vector3.zero;
         
-        if (Input.GetKey(KeyCode.W)) direction = direction + Vector3.up;
-        if (Input.GetKey(KeyCode.S)) direction = direction + Vector3.down;
-        if (Input.GetKey(KeyCode.A)) direction = direction + Vector3.left;
-        if (Input.GetKey(KeyCode.D)) direction = direction + Vector3.right;
+        if (Input.GetKey(KeyCode.W)) direction += Vector3.up;
+        if (Input.GetKey(KeyCode.S)) direction += Vector3.down;
+        if (Input.GetKey(KeyCode.A)) direction += Vector3.left;
+        if (Input.GetKey(KeyCode.D)) direction += Vector3.right;
         
-        transform.position = transform.position + (direction.normalized * speed);
+        transform.position += (direction.normalized * speed);
     }
 }
