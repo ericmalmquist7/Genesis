@@ -9,11 +9,12 @@ public class DoorController : MonoBehaviour
     public bool blocksMovement = true;
 
     public bool changesScene = false;
-    public Scene targetScene;
+    public string targetSceneName;
+    public Vector3 targetPosition;
 
-    private bool isOpen = false;
-    public Sprite open;
-    public Sprite closed;
+    public bool isOpen = false;
+    public Sprite spriteOpen;
+    public Sprite spriteClosed;
 
     private SpriteRenderer sr;
     private BoxCollider2D bc;
@@ -22,8 +23,8 @@ public class DoorController : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
-        Debug.Log(bc);
-        sr.sprite = (isOpen ? open : closed);
+
+        sr.sprite = (isOpen ? spriteOpen : spriteClosed);
     }
 
     void OnMouseDown()
@@ -31,19 +32,10 @@ public class DoorController : MonoBehaviour
         changeState();
     }
 
-    void OnTriggerStay2D(Collider2D other) {
-        if(changesScene && targetScene != null){
-            if(other.tag == "Player"){
-                Debug.Log("Scene loading: " + targetScene);
-                //SceneManager.LoadScene(targetScene, LoadSceneMode.Additive);
-                //SceneManager.MoveGameObjectToScene(other.gameObject, targetScene);
-            }
-        }
-    }
 
     public void changeState(){
         isOpen = !isOpen;
-        sr.sprite = (isOpen ? open : closed);
+        sr.sprite = (isOpen ? spriteOpen : spriteClosed);
         if (blocksMovement){
             bc.isTrigger = isOpen;
         }
