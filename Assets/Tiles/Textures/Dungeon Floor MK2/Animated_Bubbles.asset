@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Animated_Bubbles
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: a55246aab726e6b4ebfb5bca1ea94a95, type: 3}
+  - {fileID: 21300000, guid: 3ca3395191daa2148a393c459cc88183, type: 3}
+  - {fileID: 21300000, guid: 1b3acce534c2d424c914c461f8d1a285, type: 3}
+  - {fileID: 21300000, guid: 415ebe853524dc640af3e954ddb6c771, type: 3}
+  - {fileID: 21300000, guid: eec2c47b4a688a149b9687ad25dbef86, type: 3}
+  - {fileID: 21300000, guid: 37bbb13ae1baf664d861bb2a52ad1db7, type: 3}
+  - {fileID: 21300000, guid: 349e0c1b01bfeba4a9709a4a738f7f90, type: 3}
+  - {fileID: 21300000, guid: bf7de8b3687b07e458cf74ece7da1629, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
