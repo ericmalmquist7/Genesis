@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SceneManagerSingleton : MonoBehaviour
 {
     public static SceneManagerSingleton instance { get; private set; }
 
     public GameObject playerPrefab;
-    private PlayerData playerData;
+    public PlayerData playerData;
 
-    class PlayerData
+    [Serializable]
+    public struct PlayerData
     {
         public Vector3 position;
         public Quaternion rotation;
@@ -30,13 +32,6 @@ public class SceneManagerSingleton : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(this);
-
-        //Temporary
-        playerData = new PlayerData
-        {
-            position = new Vector3(0, 0, 0),
-            rotation = new Quaternion(0, 0, 0, 0)
-        };
 
         loadPlayer();
     }
