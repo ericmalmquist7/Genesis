@@ -17,7 +17,6 @@ public class Movement_Player : MonoBehaviour
 
         GameObject sceneGO = GameObject.FindGameObjectWithTag("SceneManagerSingleton");
         SM = sceneGO.GetComponent<SceneManagerSingleton>();
-
     }
 
     private void Update()
