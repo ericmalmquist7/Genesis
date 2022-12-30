@@ -32,7 +32,6 @@ public class SceneManagerSingleton : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(this);
-
         loadPlayer();
     }
 
