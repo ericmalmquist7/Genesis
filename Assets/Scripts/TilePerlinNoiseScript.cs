@@ -8,7 +8,6 @@ using UnityEngine.UIElements;
 public class TilePerlinNoiseScript : MonoBehaviour
 {
     [Header("Perlin Settings")]
-
     public float magnifcation = 1f;
     public int x_offset = 0;
     public int y_offset = 0;
@@ -17,24 +16,18 @@ public class TilePerlinNoiseScript : MonoBehaviour
 
 
     [Header("Bounds Settings")]
-
-    private bool replaceAllTiles;
-    public bool ReplaceAllTiles {
-        get { return replaceAllTiles; }
-        set { replaceAllTiles = value; useMask = !value; Debug.Log("HI"); }
-    }
-
-    private bool useMask;
-    public bool UseMask{
-        get { return useMask; }
-        set { useMask = value; replaceAllTiles = !value; }
-    }
-
+    public bool replaceAllTiles;
+    private bool _replaceAllTiles;
+    public bool useMask;
+    private bool _useMask;
     public TileBase maskTile = null;
 
 
     [Header("Tile Distribution Settings")]
     public List<TileSettings> tileSettings;
+    private Tilemap tilemap;
+
+
     [Serializable]
     public struct TileSettings
     {
@@ -61,9 +54,24 @@ public class TilePerlinNoiseScript : MonoBehaviour
         }
     }
 
-    private Tilemap tilemap;
 
-    // Start is called before the first frame update
+    public void OnValidate()
+    {
+        if (replaceAllTiles != _replaceAllTiles) //replaceAllTiles toggled
+        {
+            _replaceAllTiles = replaceAllTiles;
+            _useMask = !replaceAllTiles;
+            useMask = !replaceAllTiles;
+        }
+        if (useMask != _useMask) //replaceAllTiles toggled
+        {
+            _useMask = useMask;
+            _replaceAllTiles = !useMask;
+            replaceAllTiles = !useMask;
+        }
+    }
+
+
     public void GenerateTilemap()
     {
         tilemap = GetComponent<Tilemap>();
@@ -72,21 +80,12 @@ public class TilePerlinNoiseScript : MonoBehaviour
 
     }
 
-    private void OnValidate()
-    {
-        bool randomizeNoiseOnGenerateOld = randomizeNoiseOnGenerate;
-        randomizeNoiseOnGenerate = false;
-        //GenerateTilemap();
-        randomizeNoiseOnGenerate = randomizeNoiseOnGenerateOld;
-    }
-
     private void ApplyPerlinNoise(List<TileInfo> maskedTiles)
     {
         if (randomizeNoiseOnGenerate)
         {
             noiseSeed = UnityEngine.Random.Range(0, 100000);
         }
-
 
         foreach(TileInfo oldTile in maskedTiles)
         {
@@ -99,7 +98,6 @@ public class TilePerlinNoiseScript : MonoBehaviour
             AssignTile(oldTile, clamp_perlin);
         }
     }
-
 
     private void AssignTile(TileInfo oldTile, float perlin)
     {
@@ -114,7 +112,6 @@ public class TilePerlinNoiseScript : MonoBehaviour
         Vector3Int position = new Vector3Int(oldTile.x, oldTile.y, 0) + tilemap.cellBounds.position;
 
         tilemap.SetTile(position, newTile);
-        
     }
 
     private List<TileInfo> GenerateMask()
@@ -132,7 +129,14 @@ public class TilePerlinNoiseScript : MonoBehaviour
                 TileBase tile = allTiles[x + y * bounds.size.x];
                 if (tile != null)
                 {
-                    maskedTiles.Add(new TileInfo(x, y, tile));
+                    if (useMask)
+                    {
+                        if (tile == maskTile) maskedTiles.Add(new TileInfo(x, y, tile));
+                    }
+                    else
+                    {
+                        maskedTiles.Add(new TileInfo(x, y, tile));
+                    }
                 }
             }
         }

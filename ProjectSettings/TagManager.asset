@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BlocksLighting
   - Water
   - UI
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3870933757
+    locked: 0
+  - name: Walls
+    uniqueID: 3030702769
     locked: 0
