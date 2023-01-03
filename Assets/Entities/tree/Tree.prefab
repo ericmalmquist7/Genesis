@@ -49,7 +49,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1264264527
+  m_SortingLayer: 2
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: deb67b76f12cc1448af10fcbac0cc596, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: e511e1a63a304c948a5faa38939c45d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -184,9 +184,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.26}
+  m_Offset: {x: -0.0025543272, y: -0.26}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.19744566
 --- !u!114 &6194112875451401803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,12 +207,18 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000fdc2b9e6b1daa4b4
   m_ShapePath:
-  - {x: -0.2192154, y: -0.24367952, z: 0}
-  - {x: -0.20172143, y: 0.017232895, z: 0}
-  - {x: -0.09200144, y: 0.23144746, z: 0}
-  - {x: 0.08955526, y: 0.22655487, z: 0}
-  - {x: 0.20438433, y: -0.004785061, z: 0}
-  - {x: 0.20698333, y: -0.24612617, z: 0}
-  m_ShapePathHash: 1053915901
+  - {x: -0.19729185, y: -0.26642177, z: 0}
+  - {x: -0.13399744, y: -0.21077067, z: 0}
+  - {x: -0.05929804, y: -0.16271129, z: 0}
+  - {x: 0.042326927, y: -0.16077991, z: 0}
+  - {x: 0.11515427, y: -0.18905166, z: 0}
+  - {x: 0.16243505, y: -0.2188663, z: 0}
+  - {x: 0.19545507, y: -0.26085067, z: 0}
+  - {x: 0.19347954, y: -0.30314335, z: 0}
+  - {x: 0.099858284, y: -0.3780405, z: 0}
+  - {x: -0.05617714, y: -0.393644, z: 0}
+  - {x: -0.14355707, y: -0.34371263, z: 0}
+  - {x: -0.1903677, y: -0.3156262, z: 0}
+  m_ShapePathHash: -1154224975
   m_Mesh: {fileID: 0}
-  m_InstanceId: -61504
+  m_InstanceId: -71134
