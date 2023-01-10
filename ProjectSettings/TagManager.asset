@@ -49,3 +49,6 @@ TagManager:
   - name: Walls
     uniqueID: 3030702769
     locked: 0
+  - name: No Shadow
+    uniqueID: 292471405
+    locked: 0

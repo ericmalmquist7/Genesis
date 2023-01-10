@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
-public class SceneManagerSingleton : MonoBehaviour
+public class SCR_Scene_Manager : MonoBehaviour
 {
-    public static SceneManagerSingleton instance { get; private set; }
+    public static SCR_Scene_Manager instance { get; private set; }
+    public static GameObject playerReference { get; private set; }
 
     public GameObject playerPrefab;
     public PlayerData playerData;
@@ -16,6 +17,10 @@ public class SceneManagerSingleton : MonoBehaviour
     {
         public Vector3 position;
         public Quaternion rotation;
+        public float health;
+        public float healthMax;
+        public float pain;
+        public float painMax;
     }
     private void Awake()
     {
@@ -37,7 +42,7 @@ public class SceneManagerSingleton : MonoBehaviour
 
     private void loadPlayer()
     {
-        Instantiate(playerPrefab, playerData.position, playerData.rotation, null);
+        playerReference = Instantiate(playerPrefab, playerData.position, playerData.rotation, null);
     }
 
     public void changeScene(string targetSceneName, Vector3 newLocation, GameObject entity)

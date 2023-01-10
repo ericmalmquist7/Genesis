@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement_Player : MonoBehaviour
+public class SCR_Movement_Player : MonoBehaviour
 {
     
     [Range(0.01f, 0.5f)]
     public float speed;
 
-    private SceneManagerSingleton SM;
+    private SCR_Scene_Manager SM;
     private DoorController sceneDoor;
 
     public void Start()
@@ -16,7 +16,7 @@ public class Movement_Player : MonoBehaviour
         DontDestroyOnLoad(this);
 
         GameObject sceneGO = GameObject.FindGameObjectWithTag("SceneManagerSingleton");
-        SM = sceneGO.GetComponent<SceneManagerSingleton>();
+        SM = sceneGO.GetComponent<SCR_Scene_Manager>();
     }
 
     private void Update()
@@ -63,5 +63,7 @@ public class Movement_Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) direction += Vector3.right;
         
         transform.position += (direction.normalized * speed);
+
+        SCR_Scene_Manager.instance.playerData.pain += 0.05f;
     }
 }
